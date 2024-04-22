@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                    WHERE application_id = $application_id";
 
     if (mysqli_query($conn, $sql_update)) {
-        header("Location: admin_dashboard.php");
+        header("Location: admin.php");
         exit;
     } else {
         die("Database error: " . mysqli_error($conn));
