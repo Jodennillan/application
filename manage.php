@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_user'])) {
 }
 
 // Handle user deletion
-if (isset($_GET['delete_user_id'])) {
-    $delete_user_id = $_GET['delete_user_id'];
+if (isset($_GET['user_id'])) {
+    $delete_user_id = $_GET['user_id'];
     $sql_delete = "DELETE FROM user WHERE user_id = $delete_user_id";
     if (!mysqli_query($conn, $sql_delete)) {
         die("Database error: " . mysqli_error($conn));
@@ -96,6 +96,7 @@ if (!$result_users) {
                     echo "<td>" . $user['phone'] . "</td>";
                     echo "<td>";
                     echo "<a href='edit_user.php?user_id=" . $user['user_id'] . "' class='btn btn-warning'>Edit</a>";
+                    echo "<a href='manage.php?user_id=" . $user['user_id'] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure?\")'>Delete</a>"; // Delete with confirmation
                     echo "</td>";
                     echo "</tr>";
                 }
