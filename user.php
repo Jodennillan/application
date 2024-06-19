@@ -161,7 +161,7 @@ $application_status = mysqli_fetch_assoc($result_app_status);
             </div>
         </nav>
 
-        <!-- Profile section for the admin, initially hidden -->
+    
         <div id="profile-section" class="profile-section">
             <h4>Your Profile</h4>
             <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user['fullname']); ?></p>
